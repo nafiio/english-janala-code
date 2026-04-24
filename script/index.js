@@ -3,6 +3,11 @@ const loadLesson = () => {
     .then((res) => res.json())
     .then((data) => displayLesson(data.data));
 };
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
 const removeActive = () => {
   const lessonButtons = document.querySelectorAll(".lesson-btn");
   lessonButtons.forEach((btn) => btn.classList.remove("active"));
@@ -118,7 +123,7 @@ const displayLevelWord = (words) => {
           <h3 class="font-semibold text3xl">"${word.meaning ? word.meaning : "অর্থ পাওয়া যায় নি"} /${word.pronunciation ? word.pronunciation : "Pronounciation অর্থ পাওয়া যায় নি"} "</h3>
           <div class="flex justify-between items-center px-10">
             <button onclick="loadWordDetail(${word.id})" class="btn bg-[#1A91ff10] hover:bg-[#1A91ff80]"><i class="fa-solid fa-circle-info"></i></button>
-            <button class="btn bg-[#1A91ff10] hover:bg-[#1A91ff80]"><i class="fa-solid fa-volume-high"></i></button>
+            <button onclick="pronounceWord('${word.word}')" class="btn bg-[#1A91ff10] hover:bg-[#1A91ff80]"><i class="fa-solid fa-volume-high"></i></button>
           </div>
         </div>
     `;
