@@ -152,9 +152,30 @@
         class="mt-10 flex flex-wrap gap-4 justify-center"
       ></div>
     </section>
+
+    <!-- loading spinner -->
     <section id="spinner" class="flex justify-center items-center hidden">
       <div>
         <span class="loading loading-bars loading-xl"></span>
+      </div>
+    </section>
+
+    <!-- search input-->
+    <section class="flex items-center justify-center mt-10">
+      <div class="join">
+        <div>
+          <label class="input validator join-item">
+            <input
+              id="input-search"
+              type="text"
+              placeholder="search vocabulary now"
+              required
+            />
+          </label>
+        </div>
+        <button id="btn-search" class="btn btn-primary join-item">
+          search
+        </button>
       </div>
     </section>
     <!-- word container -->
